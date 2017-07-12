@@ -1,0 +1,24 @@
+{
+   "kind":"Service",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"goserver",
+      "labels":{
+         "name":"goserver"
+      }
+   },
+   "spec":{
+      "ports": [
+        {
+          "port":8011,
+          "name": "go-port",
+          "targetPort": 8011,
+          "nodePort": 30111
+        }
+      ],
+      "selector":{
+         "name":"goserver"
+      },
+      "type": "NodePort"
+   }
+}

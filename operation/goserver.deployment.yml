@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: "goserver"
+  namespace: default
+  labels:
+    name: "goserver"
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        name: "goserver"
+    spec:
+      containers:
+      - name: "go-test"
+        imagePullPolicy: IfNotPresent
+        image: "flf2ko/goserver:v1"
+        ports:
+        - containerPort: 8011
+          protocol: TCP
+        env:
+        - name: PHASE
+          value: "alpha"
+        command:
+          - /goserver

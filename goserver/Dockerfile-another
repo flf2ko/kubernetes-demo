@@ -1,0 +1,5 @@
+FROM alpine:latest
+WORKDIR /
+ADD goserver /
+EXPOSE 8011
+CMD ./goserver
